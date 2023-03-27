@@ -117,7 +117,7 @@ int main(void)
     // Run kernel on the GPU
     // ToDo: Play with these numbers and check the profiling times.
     int m_threads = 1; //ToDo: 2, 4, 8, 16, 31, 64, 128, 256, 512, 1024, 2048
-    cudaAdd <<<1, m_threads >>> (deviceVectorA, deviceVectorB, deviceVectorC, N);
+    cudaAdd << <1, m_threads >> > (deviceVectorA, deviceVectorB, deviceVectorC, N);
     // Kernel execution is async and will not return an error:
     gpuErrCheck(cudaPeekAtLastError());
 
